@@ -46,7 +46,9 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "lint": "./node_modules/eslint/bin/eslint.js src"
+    "lint": "./node_modules/eslint/bin/eslint.js src",
+    "hooks": "./bin/hooks",
+    "postinstall": "npm run hooks"
   },
   "jest": {
     "collectCoverageFrom": [
