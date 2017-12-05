@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import logo from './logo.svg';
 import './style.css';
 import User from '../User';
+import Footer from '../Footer'
+import AddTodo from '../../containers/AddTodo'
+import VisibleTodoList from '../../containers/VisibleTodoList'
 
 class App extends Component {
 
@@ -51,6 +54,14 @@ class App extends Component {
             )} />
             <Route path="/contributors/:login" component={User} />
           </div>
+
+          <Route path="/:filter?"render={({ match: { params } }) => (
+            <div>
+              <AddTodo />
+              <VisibleTodoList filter={params.filter || 'SHOW_ALL'} />
+              <Footer />
+            </div>
+          )} />
         </div>
       </Router>
     );
