@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import logo from './logo.svg';
 import './style.css';
+import HeaderWithUserName from '../../containers/HeaderWithUserName'
 import User from '../User';
 import Footer from '../Footer'
-import AddTodo from '../../containers/AddTodo'
-import VisibleTodoList from '../../containers/VisibleTodoList'
+import UserDetails from '../../containers/UserDetails'
 import FetchedContributors from '../../containers/FetchedContributors'
 
 class App extends Component {
@@ -14,11 +13,21 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to React</h1>
-          </header>
-          <FetchedContributors />
+          <HeaderWithUserName />
+          
+          <label style={{display: 'block', marginTop: 40, marginBottom: 10}}>(Redux Demo) Set user first name to see it reflect in header</label>
+          <UserDetails />
+
+          <label style={{display: 'block', marginTop: 40, marginBottom: 10}}>(Redux Saga Demo) Clicking on button below will make redux-saga call API to get list of contributors</label>
+          <Route path="/:filter?"render={({ match: { params } }) => (
+            <div>
+              <FetchedContributors filter={params.filter || 'SHOW_ALL'} />
+            </div>
+          )} />
+
+          <label style={{display: 'block', marginTop: 40, marginBottom: 10}}>(React Router Demo) Clicking on filter below changes URL which in turn fires Redux action</label>
+          <Footer />
+
           <div>
             <Route exact={true} path="/" render={() => (
               <div>Contributors of React</div>
@@ -26,13 +35,6 @@ class App extends Component {
             <Route path="/contributors/:login" component={User} />
           </div>
 
-          <Route path="/:filter?"render={({ match: { params } }) => (
-            <div>
-              <AddTodo />
-              <VisibleTodoList filter={params.filter || 'SHOW_ALL'} />
-              <Footer />
-            </div>
-          )} />
         </div>
       </Router>
     );

@@ -1,8 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addTodo } from '../actions'
+import PropTypes from 'prop-types'
 
-let AddTodo = ({ dispatch }) => {
+import { setUserName } from '../actions/user'
+
+let UserDetails = ({ dispatch }) => {
   let input
 
   return (
@@ -13,7 +15,7 @@ let AddTodo = ({ dispatch }) => {
           if (!input.value.trim()) {
             return
           }
-          dispatch(addTodo(input.value))
+          dispatch(setUserName(input.value))
           input.value = ''
         }}
       >
@@ -23,12 +25,17 @@ let AddTodo = ({ dispatch }) => {
           }}
         />
         <button type="submit">
-          Add Todo
+          Set First Name
         </button>
       </form>
     </div>
   )
 }
-AddTodo = connect()(AddTodo)
 
-export default AddTodo
+UserDetails.propTypes = {
+  dispatch: PropTypes.func.isRequired
+}
+
+UserDetails = connect()(UserDetails)
+
+export default UserDetails

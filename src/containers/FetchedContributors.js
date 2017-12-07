@@ -1,16 +1,28 @@
 import { connect } from 'react-redux'
+
 import ReactContributors from '../components/ReactContributors'
+import { fetchContributors } from '../actions/contributors'
+
+const getContributors = (contributors, filter) => {
+  switch (filter) {
+    case 'SHOW_TOP_CONTRIBUTORS':
+      return contributors.filter(t => t.contributions > 1000)
+    case 'SHOW_ALL':
+    default:
+      return contributors
+  }
+}
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    contributors: state.contributors 
+    contributors: getContributors(state.contributors, ownProps.filter)
   }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         onFetchContributors: () => {
-        dispatch({type: 'FETCH_REACT_CONTRI', payload: {}})
+        dispatch(fetchContributors())
       }
     }
   }
