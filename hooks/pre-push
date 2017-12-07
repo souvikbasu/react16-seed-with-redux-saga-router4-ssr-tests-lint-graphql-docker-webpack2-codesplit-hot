@@ -12,5 +12,5 @@ else
 fi
 
 # Run unit tests. If there are any failures the push will be aborted.
-# CI=true npm t
+CI=true npm t
 exit $?
