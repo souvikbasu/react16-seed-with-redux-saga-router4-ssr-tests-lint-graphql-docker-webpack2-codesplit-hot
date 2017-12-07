@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> matches snapshot 1`] = `
+<BrowserRouter>
+  <div
+    className="App"
+  >
+    <Connect(Header) />
+    <label
+      style={
+        Object {
+          "display": "block",
+          "marginBottom": 10,
+          "marginTop": 40,
+        }
+      }
+    >
+      (Redux Demo) Set user first name to see it reflect in header
+    </label>
+    <Connect(UserDetails) />
+    <label
+      style={
+        Object {
+          "display": "block",
+          "marginBottom": 10,
+          "marginTop": 40,
+        }
+      }
+    >
+      (Redux Saga Demo) Clicking on button below will make redux-saga call API to get list of contributors
+    </label>
+    <Route
+      path="/:filter?"
+      render={[Function]}
+    />
+    <label
+      style={
+        Object {
+          "display": "block",
+          "marginBottom": 10,
+          "marginTop": 40,
+        }
+      }
+    >
+      (React Router Demo) Clicking on filter below changes URL which in turn fires Redux action
+    </label>
+    <Footer />
+    <div>
+      <Route
+        exact={true}
+        path="/"
+        render={[Function]}
+      />
+      <Route
+        component={[Function]}
+        path="/contributors/:login"
+      />
+    </div>
+  </div>
+</BrowserRouter>
+`;

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './style.css';
 import HeaderWithUserName from '../../containers/HeaderWithUserName'
 import User from '../User';
-import Footer from '../Footer'
+import ContributorFilter from '../ContributorFilter'
 import UserDetails from '../../containers/UserDetails'
 import FetchedContributors from '../../containers/FetchedContributors'
 
@@ -26,7 +26,7 @@ class App extends Component {
           )} />
 
           <label style={{display: 'block', marginTop: 40, marginBottom: 10}}>(React Router Demo) Clicking on filter below changes URL which in turn fires Redux action</label>
-          <Footer />
+          <ContributorFilter />
 
           <div>
             <Route exact={true} path="/" render={() => (

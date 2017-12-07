@@ -1,11 +1,11 @@
 import React from "react";
 import { shallow } from "enzyme";
 
-import User from "./";
+import ContributorFilter from "./";
 
-describe("<User />", () => {
+describe("<ContributorFilter />", () => {
   it("matches snapshot", () => {
-    const wrapper = shallow(<User match={{ params: { login: 'abc' } }} />);
+    const wrapper = shallow(<ContributorFilter />);
     expect(wrapper).toMatchSnapshot();
   });
 });
