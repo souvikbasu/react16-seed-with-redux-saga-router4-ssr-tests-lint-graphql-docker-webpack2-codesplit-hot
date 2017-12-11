@@ -41,7 +41,10 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "start:server": "npm run build && cd build && node server.js",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "node scripts/build.js",
+    "build:server": "BABEL_ENV=node babel ./src -d ./build --ignore spec.js --copy-files",
     "test": "node scripts/test.js --env=jsdom",
     "lint": "./node_modules/eslint/bin/eslint.js src",
     "hooks": "./bin/hooks",
@@ -84,11 +87,6 @@
       "web.jsx",
       "jsx",
       "node"
-    ]
-  },
-  "babel": {
-    "presets": [
-      "react-app"
     ]
   },
   "eslintConfig": {
