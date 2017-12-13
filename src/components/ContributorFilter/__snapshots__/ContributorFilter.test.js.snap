@@ -2,8 +2,7 @@
 
 exports[`<ContributorFilter /> matches snapshot 1`] = `
 <p>
-  Show:
-   
+  Show: 
   <FilterLink
     filter="SHOW_ALL"
   >

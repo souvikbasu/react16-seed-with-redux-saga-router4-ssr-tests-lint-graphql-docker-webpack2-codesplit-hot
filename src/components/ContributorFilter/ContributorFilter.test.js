@@ -1,10 +1,10 @@
-import React from "react";
-import { shallow } from "enzyme";
+import React from 'react';
+import { shallow } from 'enzyme';
 
-import ContributorFilter from "./";
+import ContributorFilter from './';
 
-describe("<ContributorFilter />", () => {
-  it("matches snapshot", () => {
+describe('<ContributorFilter />', () => {
+  it('matches snapshot', () => {
     const wrapper = shallow(<ContributorFilter />);
     expect(wrapper).toMatchSnapshot();
   });
